@@ -9,23 +9,54 @@
     <link rel="shortcut icon" href="avatar.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 
 <body>
-    <section class="main">
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <section class="main-card">
+        <div class="header">
+            <div class="title-container">
+                <h1>M I T T U</h1>
+                <span class="subtitle">Virtual Companion</span>
+            </div>
+            <div class="controls">
+                <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                <button id="elderly-toggle" class="icon-btn" title="Elderly Mode"><i class="fas fa-glasses"></i></button>
+            </div>
+        </div>
+
         <div class="image-container">
             <div class="image">
-                <img src="mittu.gif" alt="Animated virtual assistant character MITTU smiling and waving in a bright, friendly digital environment with the text M I T T U above and I m a Virtual Assistant MITTU, How may i help you? below, conveying a welcoming and helpful tone">
+                <img src="mittu.gif" alt="MITTU Assistant">
             </div>
-            <h1>M I T T U</h1>
-            <p>I m a Virtual Assistant MITTU, How may i help you?</p>
+            <div class="listening-indicator hidden">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
-        <div class="input">
-            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
-            <h1 class="content"> Click here to speak</h1>
+
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <!-- Chat messages will appear here -->
+                <div class="message bot-message">
+                    Hello! I'm Mittu. How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <button class="talk-btn"><i class="fas fa-microphone-alt"></i></button>
+            <p class="status-text">Click microphone to speak</p>
         </div>
     </section>
+
     <script src="app.js"></script>
 </body>
 
