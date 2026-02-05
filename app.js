@@ -4,6 +4,8 @@ const chatBox = document.querySelector('#chat-box');
 const listeningIndicator = document.querySelector('.listening-indicator');
 const elderlyToggle = document.getElementById('elderly-toggle');
 const themeToggle = document.getElementById('theme-toggle');
+const typeBox = document.getElementById('type-box');
+const sendBtn = document.getElementById('send-btn');
 
 // Helper function to add messages to chat
 function addMessage(text, sender) {
@@ -21,6 +23,9 @@ function addMessage(text, sender) {
 }
 
 function speak(text) {
+    // Clear any previous speech to prevent "stacking" or freezing
+    window.speechSynthesis.cancel();
+
     const text_speak = new SpeechSynthesisUtterance(text);
 
     text_speak.rate = 1;
@@ -53,13 +58,33 @@ window.addEventListener('load', () => {
 try {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
+    let isRecognizing = false;
+
+    // Check for "file://" protocol which often blocks microphone access
+    if (window.location.protocol === 'file:') {
+        alert("⚠️ IMPORTANT: You are opening this file directly (file://). Microphone access behaves poorly or is blocked in this mode.\n\nPlease use a Local Server (like 'Live Server' in VS Code) for the microphone to work correctly.");
+    }
+
+    recognition.continuous = false; // Ensure it stops after one sentence (standard for assistants)
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
 
     recognition.onstart = () => {
-        content.textContent = "Listening...";
+        isRecognizing = true;
+        content.textContent = "Listening... Speak now";
         listeningIndicator.classList.remove('hidden');
+        console.log("Speech Recognition Started");
+    };
+
+    recognition.onspeechend = () => {
+        content.textContent = "Processing...";
+        listeningIndicator.classList.add('hidden');
+        console.log("Speech Ended, Processing...");
+        recognition.stop(); // Ensure it stops capturing
     };
 
     recognition.onend = () => {
+        isRecognizing = false;
         content.textContent = "Click microphone to speak";
         listeningIndicator.classList.add('hidden');
     };
@@ -74,18 +99,28 @@ try {
     recognition.onerror = (event) => {
         console.error("Speech Recognition Error:", event.error);
         listeningIndicator.classList.add('hidden');
-        content.textContent = "Error: " + event.error;
+        content.textContent = "Click microphone to speak"; // Reset text
+        isRecognizing = false; // Ensure state is reset
+
         if (event.error === 'not-allowed') {
             speak("Microphone access was denied. Please allow microphone permission.");
             alert("Microphone Access Denied!\n\n1. Click the 'Lock' icon in your browser URL bar.\n2. Allow Microphone access.\n3. Refresh the page.");
         } else if (event.error === 'network') {
             speak("I am having trouble connecting to the internet.");
+        } else if (event.error === 'no-speech') {
+            content.textContent = "No speech detected. Try moving closer.";
+            // Simply stop processing, don't speak error for silence
+            return;
         } else {
             speak("I didn't catch that. Please try again.");
         }
     };
 
     btn.addEventListener('click', () => {
+        if (isRecognizing) {
+            recognition.stop(); // Allow user to stop manually if they click again
+            return;
+        }
         content.textContent = "Listening...";
         recognition.start();
     });
@@ -103,6 +138,24 @@ elderlyToggle.addEventListener('click', () => {
         speak("Elderly Mode activated. Text size increased.");
     } else {
         speak("Standard Mode activated.");
+    }
+});
+
+// Handle text input
+function handleTextInput() {
+    const text = typeBox.value;
+    if (text.trim() === "") return;
+
+    addMessage(text, 'user');
+    takeCommand(text.toLowerCase());
+    typeBox.value = "";
+}
+
+sendBtn.addEventListener('click', handleTextInput);
+
+typeBox.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleTextInput();
     }
 });
 
