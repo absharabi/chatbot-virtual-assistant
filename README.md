@@ -1,55 +1,71 @@
-# MITTU - Voice-Enabled Smart Virtual Companion & Scheme Evaluator
+# MITTU - Voice-Enabled Smart Virtual Companion & Welfare Scheme Evaluator
 
-[![Build Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
-[![Platform](https://img.shields.io/badge/Platform-Web-blue.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]()
-[![Accessibility](https://img.shields.io/badge/Accessibility-Elderly%20Ready-orange.svg)]()
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Url-brightgreen.svg?style=for-the-badge)](https://absharabi.github.io/chatbot-virtual-assistant/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
+[![Git Pages](https://img.shields.io/badge/Pages-Deployed-orange?style=for-the-badge&logo=github&logoColor=white)]()
 
-> MITTU is an advanced, voice-enabled, data-driven virtual companion designed to assist senior citizens and rural populations. By combining a **Unified Multi-Scheme Eligibility Engine**, real-time **voice command processing (Web Speech API)**, and key daily assistance utilities, MITTU bridges accessibility gaps to bring government benefits and essential health features directly to those who need them most.
+> MITTU is an advanced, voice-activated virtual assistant designed to bridge the digital literacy gap for senior citizens and low-income demographics. It features a state-driven, multi-factor **Government Scheme Eligibility Engine**, dual-mode accessibility styling, emergency routing, and daily helper functions—all operating without complex backend dependencies to run fast on lower-end devices.
 
-### 🔗 **[Live Demo of MITTU Virtual Assistant](https://absharabi.github.io/chatbot-virtual-assistant/)**
-
----
-
-## 🌟 Key Features
-
-### 1. ♿ Elderly-First Accessibility Mode
-*   **High-Contrast Theme:** Immediate switch to visual settings optimized for low-vision individuals (bright yellow-on-black).
-*   **Dynamic Layout Refactor:** Disables heavy screen graphics (like avatar animations) to focus space on enlarged chat bubbles.
-*   **Slower Speech Synthesis:** Automatically reduces Speech Synthesis output speech rate to **0.85x** for clear, comfortable listening.
-*   **Voice Control Scaling:** Enlarged audio command capture button for tremor-prone fingers.
-
-### 2. 🏛️ Government Scheme Eligibility Engine
-*   **Sequential Profiling Quiz:** Builds a temporary secure profile using structured parameters (age, state residency, income category, occupations, disabilities, SECC status).
-*   **Automatic Matchmaking Evaluation:** Cross-references the profile with local databases (`schemes.json`) to find qualifying welfare benefits instantly.
-*   **Structured Walkthroughs:** Explains required documents and steps sequentially.
-*   **Geolocation Service Routing:** Queries GPS locations to direct users to the nearest Common Service Centers (CSC) or Panchayat offices on Google Maps.
-
-### 3. ⏱️ Integrated Health & Medication Reminders
-*   Simple setting protocols for health prompts ("remind me to take pills").
-*   Alerts users visually and acoustically back-to-back at target intervals.
-
-### 4. 📰 Live National News & Government Updates
-*   Pulls the latest national news headlines using an RSS-to-JSON parser fallback to bypass restricted government API feeds.
-*   Direct hot-linking cards populate dynamically inside the chat feed for reading.
-
-### 5. 🚨 Safety, Security & Fraud Warnings
-*   **Fraud Awareness Protocols:** Direct trigger alerts warnings on fraudulent calls, OTP sharing, and scam links.
-*   **SOS & Emergency Broadcast:** Instantly loads emergency numbers (Ambulance, Fire, Police) and resolves current geographic coordinates for rescue sharing.
+### 🔗 **[Explore the Live Deployment](https://absharabi.github.io/chatbot-virtual-assistant/)**
 
 ---
 
-## 🛠️ Technology Stack
+## 🚀 Interactive Technical Showcase
 
-MITTU is built with standard technologies to keep the system responsive on low-end devices without transpilation overhead:
+### 1. ♿ Elderly-First Accessibility Grid System
+Recruiters looking for accessibility compliance will appreciate MITTU's implementation of assistive layout engineering:
+*   **Contrast & Legibility:** Activating *Elderly Mode* instantly overrides basic variables with high-contrast rulesets (bright yellow text on `#111111` black card background) compliant with WCAG 2.1 AAA standards.
+*   **Adaptive Cognitive Load:** Hides large, distracting media assets (e.g., the pulsing robot GIF avatar) to save vertical screen space and keep focus solely on chat interactions.
+*   **Speech Output Governance:** Modulates the Web Speech Synthesis engine dynamically, dropping the speech rate to **0.85x** for clear pronunciation and comfort.
+*   **Layout Safety:** Built with `flex-shrink: 0` wrappers to prevent enlarged containers and buttons from breaking layouts on small Viewports.
 
-*   **Frontend Structure:** HTML5 Semantic Elements
-*   **Styling & Design System:** Flexbox Layouts, Glassmorphism, CSS Custom Properties (Variables)
-*   **Logic & Web APIs:** Pure Javascript (ES6), Web Speech API (`SpeechRecognition`, `SpeechSynthesis`), Geolocation API
+### 2. 🏛️ Unified Multi-Scheme Matchmaking Engine
+Instead of basic keyword matching, MITTU uses an interactive, state-guided assessment tree to profile users:
+*   **Profile Building:** Walks users through a sequence of 7 demographic questions (Age, Kerala Residency, Family Income, Occupation, Disability, Widowed status, SECC registration).
+*   **Conditional Evaluation:** Runs a custom matcher comparing user values against targeted rules defined dynamically in `schemes.json`.
+*   **Transparency:** When ineligible, the engine gives the user clear reasons (e.g., *"Age must be 60+"* or *"Must be in SECC database"*).
+*   **Routing to Local Action:** If the user is eligible, MITTU details specific documents needed, lists application steps, and generates GPS coordinates to map the nearest local Grama Panchayat or CSC office.
+
+### 3. 🗺️ GPS Geolocation Service Locator
+*   Leverages the browser `Navigator.geolocation` API to resolve the user's exact latitude and longitude asynchronously.
+*   Directly parses and embeds user coordinates into query strings mapping to Google Maps search parameters, instantly opening directions to localized services like **Government Hospitals, Common Service Centers (CSCs), Police Stations, and Panchayat Offices**.
+
+### 4. 📰 Fallback RSS Live News Feed
+*   Parses national and international news headlines dynamically.
+*   Uses a proxy wrapper to parse RSS news feeds (fetching *The Hindu* and *BBC News*) into a structured JSON string, generating clickable article preview cards inside the conversation board.
+
+### 5. 🔔 Smart Utilities & Safety Safeguards
+*   **Medication Reminders:** Demonstrates scheduling prompts (e.g., *"Take your medical pills & drink water"*). Uses non-blocking timer queues to prompt older users.
+*   **Fraud Awareness System:** Triggers active security warnings when keywords like "OTP", "bank call", or "scam" are detected.
+*   **Emergency SOS:** Instantly lists fire, ambulance, and police coordinates while sharing current location links.
 
 ---
 
-## 📁 Architecture
+## 🛠️ How to Run Locally
+
+Because the project leverages advanced Web APIs (microphone voice capture and geolocation coordinates), modern browsers block these services on file-based scripts (`file:///...`). To test features, run it using a local HTTP server.
+
+### Option A: Running with Python (Easiest)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/absharabi/chatbot-virtual-assistant.git
+   cd chatbot-virtual-assistant
+   ```
+2. Launch a fast HTTP server:
+   ```bash
+   python -m http.server 8000
+   ```
+3. Open directory in your browser: [http://localhost:8000](http://localhost:8000)
+
+### Option B: Running with VS Code "Live Server"
+1. Open this workspace in **VS Code**.
+2. Click **Go Live** on the bottom right tray bar.
+
+---
+
+## 📂 Project Architecture
 
 ```
 chatbot-virtual-assistant/
@@ -64,36 +80,13 @@ chatbot-virtual-assistant/
 
 ---
 
-## 🚀 Getting Started
+## 💻 Tech Stack in Focus
 
-### Prerequisites
-
-To use voice features and geolocation locally, you **must run the application through an HTTP server** (and not via the `file://` protocol in your browser), because modern browsers block microphone and camera permissions on unsecured filesystem files.
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/absharabi/chatbot-virtual-assistant.git
-cd chatbot-virtual-assistant
-```
-
-### 2. Start a Local Server
-
-You can run the site using any light HTTP server:
-
-**Using Python:**
-```bash
-python -m http.server 8000
-```
-Open **`http://localhost:8000`** in your browser.
-
-**Using VS Code Live Server extension:**
-1. Open the project in VS Code.
-2. Click **Go Live** at the bottom status bar.
-
----
-
-## 🤝 Contributing & Scope
-
-This project is tailored for senior citizens, digital literacy programs, and municipal aid. Contributions improving local language inputs (Web Speech API localized engines) or adding state welfare configurations in `schemes.json` are welcome.
-
-Created with 💙 by [absharabi](https://github.com/absharabi).
+*   **Structure:** Semantic markup (`index.html`) using best practices for web accessibility.
+*   **Styling:** Custom CSS variables (`style.css`), Glassmorphic blur backdrops, responsive grid layouts, animations, and transitions.
+*   **Core Logic:** Raw Vanilla JS (`app.js`) to achieve lightning-fast loading speeds on mobile devices.
+*   **APIs Handled:**
+    *   `SpeechRecognition` (Web Voice Command inputs)
+    *   `SpeechSynthesis` (System Speech outputs)
+    *   `Geolocation` (GPS Search coordinates)
+    *   `RSS2JSON API` (Headline news aggregation)
