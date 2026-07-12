@@ -14,7 +14,8 @@ body.light-mode {
     --card-bg: rgba(255, 255, 255, 0.65);
     --text-color: #1a1a1a;
     --chat-bot-bg: rgba(0, 0, 0, 0.08);
-
+    background: var(--bg-gradient);
+    color: var(--text-color);
 }
 
 * {
@@ -182,6 +183,13 @@ body {
     overflow-y: auto;
     margin-bottom: 20px;
     padding-right: 5px;
+    min-height: 0;
+}
+
+#chat-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Scrollbar styling */
@@ -299,11 +307,34 @@ body {
 /* Elderly Mode Styles */
 body.elderly-mode {
     font-size: 24px;
+    --bg-gradient: #000000;
+    --card-bg: #111111;
+    --text-color: #ffeb3b;
+    --chat-bot-bg: #333333;
+    --chat-user-bg: #ffeb3b;
+}
+
+body.elderly-mode .user-message {
+    color: #000000;
+    font-weight: bold;
+}
+
+body.elderly-mode .bot-message {
+    font-weight: bold;
 }
 
 .elderly-mode .main-card {
     width: 95%;
     height: 95vh;
+}
+
+.elderly-mode .image-container {
+    display: none;
+}
+
+.elderly-mode .header,
+.elderly-mode .input-area {
+    flex-shrink: 0;
 }
 
 .elderly-mode .message {

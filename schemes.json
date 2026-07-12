@@ -1,0 +1,103 @@
+{
+  "old_age_pension": {
+    "name": "IGNOAPS Old Age Pension",
+    "state": "Central",
+    "keywords": ["pension", "old age", "senior pension"],
+    "eligibility": "Citizen above 60 years with low income.",
+    "documents": ["Aadhar Card", "Income Certificate", "Bank Passbook", "Age Proof"],
+    "steps": ["Visit the official portal or your local CSC", "Fill out the online application form", "Upload your Age and Income proofs", "Submit and wait for verification"],
+    "apply": "Visit nearest Panchayat office or State Social Welfare portal.",
+    "url": "https://www.myscheme.gov.in/schemes/ignoaps",
+    "conditions": {
+      "minAge": 60,
+      "lowIncome": true
+    }
+  },
+  "ayushman_bharat": {
+    "name": "Ayushman Bharat Health Card",
+    "state": "Central",
+    "keywords": ["ayushman", "health card", "hospital scheme"],
+    "eligibility": "Low income family under SECC database.",
+    "documents": ["Aadhar Card", "Ration Card", "Mobile Number"],
+    "steps": ["Go to your nearest Common Service Center (CSC) or empaneled hospital", "Verify your name in the SECC 2011 database", "Complete KYC using Aadhar", "Print your Ayushman Card"],
+    "apply": "Visit nearest Common Service Center (CSC).",
+    "url": "https://www.myscheme.gov.in/schemes/pmjay",
+    "conditions": {
+      "isSECC": true
+    }
+  },
+  "ration_card": {
+    "name": "Ration Card (NFS)",
+    "state": "Central",
+    "keywords": ["ration", "food card"],
+    "eligibility": "Low income household under PDS.",
+    "documents": ["Aadhar Card", "Address Proof", "Income Certificate"],
+    "steps": ["Visit your State Food Supply Office portal", "Submit head of household application", "Attach Address and Income Proofs", "Complete verification by local authority"],
+    "apply": "Apply through State Food Supply Office.",
+    "url": "https://www.myscheme.gov.in/schemes/nfs",
+    "conditions": {
+      "lowIncome": true
+    }
+  },
+  "kerala_old_age_pension": {
+    "name": "Kerala Old Age Pension",
+    "state": "Kerala",
+    "keywords": ["kerala old age", "sevana pension", "kerala senior pension", "kerala old age pension"],
+    "eligibility": "60 years or above, permanent resident of Kerala, family income below Rs. 100000.",
+    "documents": ["Aadhar Card", "Income Certificate", "Age Proof", "Bank Passbook"],
+    "steps": ["Visit the Sevana Pension portal or your Grama Panchayat", "Fill the application form for Old Age Pension", "Submit Income Certificate and Age Proof", "Wait for local entity verification process"],
+    "apply": "Apply through Sevana Pension portal or Grama Panchayat.",
+    "url": "https://lsgkerala.gov.in/en/welfarepension/oap",
+    "conditions": {
+      "minAge": 60,
+      "lowIncome": true,
+      "keralaResident": true
+    }
+  },
+  "kerala_widow_pension": {
+    "name": "Kerala Widow Pension",
+    "state": "Kerala",
+    "keywords": ["kerala widow pension", "destitute pension", "widow pension kerala"],
+    "eligibility": "Widows or destitute women, resident of Kerala, family income below Rs. 100000.",
+    "documents": ["Aadhar Card", "Death Certificate of Husband", "Income Certificate", "Bank Passbook", "Ration Card"],
+    "steps": ["Visit your local body office or Sevana portal", "Provide Husband's Death Certificate", "Submit Income Proof", "Complete local village officer verification"],
+    "apply": "Apply through Sevana Pension portal or localized local body.",
+    "url": "https://lsgkerala.gov.in/en/welfarepension/wp",
+    "conditions": {
+      "isWidow": true,
+      "lowIncome": true,
+      "keralaResident": true
+    }
+  },
+  "kerala_agriculture_pension": {
+    "name": "Kerala Agricultural Labour Pension",
+    "state": "Kerala",
+    "keywords": ["kerala agriculture pension", "farmer pension kerala", "agricultural pension"],
+    "eligibility": "Agricultural labourers over 60 years of age, resident of Kerala, family income below Rs. 100000.",
+    "documents": ["Aadhar Card", "Age Proof", "Income Certificate", "Labour Certificate from Local Body", "Bank Passbook"],
+    "steps": ["Get Labour Certificate from agricultural officer", "Visit Sevana Pension portal", "Upload Labour and Income proof", "Complete submission process"],
+    "apply": "Apply through Sevana Pension portal or Grama Panchayat.",
+    "url": "https://lsgkerala.gov.in/en/welfarepension/alp",
+    "conditions": {
+      "isAgriLabourer": true,
+      "minAge": 60,
+      "lowIncome": true,
+      "keralaResident": true
+    }
+  },
+  "kerala_disability_pension": {
+    "name": "Kerala Disability Pension",
+    "state": "Kerala",
+    "keywords": ["kerala disability pension", "handicap pension kerala"],
+    "eligibility": "Persons with more than 40% disability, resident of Kerala, family income below Rs. 100000.",
+    "documents": ["Aadhar Card", "Disability Certificate from Medical Board", "Income Certificate", "Bank Passbook"],
+    "steps": ["Obtain formal Disability Certificate (40%+)", "Go to Sevana portal or Grama Panchayat", "Submit application along with medical proofs", "Wait for local committee clearance"],
+    "apply": "Apply through Sevana Pension portal or Grama Panchayat.",
+    "url": "https://lsgkerala.gov.in/en/welfarepension/sshp",
+    "conditions": {
+      "isDisabled": true,
+      "lowIncome": true,
+      "keralaResident": true
+    }
+  }
+}
