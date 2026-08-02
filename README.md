@@ -1,67 +1,67 @@
-# MITTU - Voice-Enabled Smart Virtual Companion & Welfare Scheme Evaluator
+# MITTU - Voice-Enabled Multilingual Virtual Companion & Welfare Scheme Evaluator
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live%20Url-brightgreen.svg?style=for-the-badge)](https://absharabi.github.io/chatbot-virtual-assistant/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
-[![Git Pages](https://img.shields.io/badge/Pages-Deployed-orange?style=for-the-badge&logo=github&logoColor=white)]()
+[![PWA / SW](https://img.shields.io/badge/Offline-PWA%20Ready-blueviolet?style=for-the-badge&logo=pwa&logoColor=white)]()
+[![GitHub Pages](https://img.shields.io/badge/Pages-Deployed-orange?style=for-the-badge&logo=github&logoColor=white)]()
 
-> MITTU is an advanced, voice-activated virtual assistant designed to bridge the digital literacy gap for senior citizens and low-income demographics. It features a state-driven, multi-factor **Government Scheme Eligibility Engine**, dual-mode accessibility styling, emergency routing, and daily helper functions—all operating without complex backend dependencies to run fast on lower-end devices.
+> **MITTU** is an advanced, voice-activated multilingual virtual assistant designed to bridge the digital literacy gap for senior citizens and low-income demographics. It features a state-driven **Government Scheme Eligibility Engine**, 3-language system (English, Hindi, Malayalam), WCAG 2.1 AAA Elderly Mode, command-registry routing, offline PWA capabilities, and emergency response features—all built with zero-dependency Vanilla JS for maximum performance on low-spec devices.
 
 ### 🔗 **[Explore the Live Deployment](https://absharabi.github.io/chatbot-virtual-assistant/)**
 
 ---
 
-## 🚀 Interactive Technical Showcase
+## 🚀 Key Features & Highlights
 
-### 1. ♿ Elderly-First Accessibility Grid System
-Recruiters looking for accessibility compliance will appreciate MITTU's implementation of assistive layout engineering:
-*   **Contrast & Legibility:** Activating *Elderly Mode* instantly overrides basic variables with high-contrast rulesets (bright yellow text on `#111111` black card background) compliant with WCAG 2.1 AAA standards.
-*   **Adaptive Cognitive Load:** Hides large, distracting media assets (e.g., the pulsing robot GIF avatar) to save vertical screen space and keep focus solely on chat interactions.
-*   **Speech Output Governance:** Modulates the Web Speech Synthesis engine dynamically, dropping the speech rate to **0.85x** for clear pronunciation and comfort.
-*   **Layout Safety:** Built with `flex-shrink: 0` wrappers to prevent enlarged containers and buttons from breaking layouts on small Viewports.
+### 1. 🌐 Complete Multi-Language Engine (EN / HI / ML)
+* **3 Languages Supported:** Full support for **English**, **Hindi (हिन्दी)**, and **Malayalam (മലയാളം)**.
+* **Localized Speech Recognition & Synthesis:** Seamlessly toggles Web Speech Recognition `lang` code (`en-US`, `hi-IN`, `ml-IN`) and selects native voice outputs dynamically.
+* **Multilingual Command Matching:** Keyword routing supports multi-lingual triggers (e.g., *"News"*, *"समाचार"*, *"വാർത്ത"*).
+* **Multi-Language Yes/No Detection:** Evaluates quiz responses accurately in all 3 languages (e.g., *"Yes / हाँ / അതെ"*).
+* **Preference Persistence:** Automatically saves user language choices using `localStorage`.
 
-### 2. 🏛️ Unified Multi-Scheme Matchmaking Engine
-Instead of basic keyword matching, MITTU uses an interactive, state-guided assessment tree to profile users:
-*   **Profile Building:** Walks users through a sequence of 7 demographic questions (Age, Kerala Residency, Family Income, Occupation, Disability, Widowed status, SECC registration).
-*   **Conditional Evaluation:** Runs a custom matcher comparing user values against targeted rules defined dynamically in `schemes.json`.
-*   **Transparency:** When ineligible, the engine gives the user clear reasons (e.g., *"Age must be 60+"* or *"Must be in SECC database"*).
-*   **Routing to Local Action:** If the user is eligible, MITTU details specific documents needed, lists application steps, and generates GPS coordinates to map the nearest local Grama Panchayat or CSC office.
+### 2. ♿ WCAG AAA Elderly-First Accessibility & High Contrast
+* **Contrast & Legibility:** *Elderly Mode* switches to high-contrast rulesets (bright yellow text on ultra-dark `#111111` background), satisfying WCAG 2.1 AAA standards.
+* **Speech Synthesis Modulation:** Speech rate drops to **0.85x** for clear pronunciation and comfortable listening.
+* **Distraction-Free Mode:** Hides non-essential animated graphics to focus entirely on large, legible text output.
 
-### 3. 🗺️ GPS Geolocation Service Locator
-*   Leverages the browser `Navigator.geolocation` API to resolve the user's exact latitude and longitude asynchronously.
-*   Directly parses and embeds user coordinates into query strings mapping to Google Maps search parameters, instantly opening directions to localized services like **Government Hospitals, Common Service Centers (CSCs), Police Stations, and Panchayat Offices**.
+### 3. 🏛️ Unified Multi-Scheme Matchmaking Engine
+* **Interactive Questionnaire:** Directs users through a state-driven assessment (Age, Kerala Residency, Income, Occupation, Disability, Widow Status, SECC Database).
+* **Rule Matcher:** Compares responses against rules defined in `schemes.json`.
+* **Transparent Feedback:** Explains specific reasons for ineligibility (e.g., *"Age must be 60+"* or *"Must be in SECC database"*).
+* **Actionable Office Navigation:** Details required documents, step-by-step application instructions, and auto-generates localized GPS maps for Grama Panchayat or CSC offices.
 
-### 4. 📰 Fallback RSS Live News Feed
-*   Parses national and international news headlines dynamically.
-*   Uses a proxy wrapper to parse RSS news feeds (fetching *The Hindu* and *BBC News*) into a structured JSON string, generating clickable article preview cards inside the conversation board.
+### 4. ⚡ Modern Command Registry & Architecture
+* **Extensible Command Registry:** Uses a clean, scalable array-based registry of pattern matchers and handler functions instead of monolithic `if/else` chains.
+* **XSS Protection:** Enforces safe DOM element construction (`createElement`, `textContent`) for all link outputs and message elements to prevent cross-site scripting vulnerabilities.
+* **`safeFetch` Resilience:** Wrapper with fallback handling for external API dependencies.
 
-### 5. 🔔 Smart Utilities & Safety Safeguards
-*   **Medication Reminders:** Demonstrates scheduling prompts (e.g., *"Take your medical pills & drink water"*). Uses non-blocking timer queues to prompt older users.
-*   **Fraud Awareness System:** Triggers active security warnings when keywords like "OTP", "bank call", or "scam" are detected.
-*   **Emergency SOS:** Instantly lists fire, ambulance, and police coordinates while sharing current location links.
+### 5. 🛠️ Rich Interactive Toolkit & PWA Capabilities
+* **Offline Service Worker (`sw.js`):** Cache-first strategy for static resources ensures MITTU functions smoothly even with spotty connectivity.
+* **Chat History Persistence & Export:** Automatically saves conversations to `localStorage` and allows downloading full transcripts as `.txt` files.
+* **Quick-Action Chips:** One-click shortcuts for high-frequency commands (*Check Schemes*, *Emergency*, *News*, *System Info*, *Help*).
+* **Keyboard Shortcuts:** Built-in productivity keys: <kbd>Ctrl+M</kbd> (Mic), <kbd>Esc</kbd> (Stop speech), <kbd>Ctrl+L</kbd> (Clear chat).
+* **Emergency SOS & Location Service:** Instantly displays local emergency helplines (Police 100, Ambulance 102, Fire 101) alongside real-time GPS coordinate links.
 
 ---
 
 ## 🛠️ How to Run Locally
 
-Because the project leverages advanced Web APIs (microphone voice capture and geolocation coordinates), modern browsers block these services on file-based scripts (`file:///...`). To test features, run it using a local HTTP server.
+Because the project leverages Web APIs (microphone audio capture and geolocation), modern browsers block these services on direct `file://` execution. Please use a local HTTP server.
 
-### Option A: Running with Python (Easiest)
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/absharabi/chatbot-virtual-assistant.git
-   cd chatbot-virtual-assistant
-   ```
-2. Launch a fast HTTP server:
-   ```bash
-   python -m http.server 8000
-   ```
-3. Open directory in your browser: [http://localhost:8000](http://localhost:8000)
+### Option A: Python HTTP Server (Recommended)
+```bash
+git clone https://github.com/absharabi/chatbot-virtual-assistant.git
+cd chatbot-virtual-assistant
+python -m http.server 8080
+```
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-### Option B: Running with VS Code "Live Server"
-1. Open this workspace in **VS Code**.
-2. Click **Go Live** on the bottom right tray bar.
+### Option B: VS Code Live Server
+1. Open the project folder in **VS Code**.
+2. Click **Go Live** in the status bar.
 
 ---
 
@@ -70,23 +70,26 @@ Because the project leverages advanced Web APIs (microphone voice capture and ge
 ```
 chatbot-virtual-assistant/
 │
-├── index.html        # App structural layout and core UI shell
-├── style.css         # Styling system, responsive grids, and design themes
-├── app.js            # Voice orchestration, state machines, and API integrations
-├── schemes.json      # Structured database of schemes with matching parameters
-├── avatar.png        # Icon resources
-└── mittu.gif         # Audio status animations
+├── index.html        # Glassmorphic shell, language selector, chips & splash screen
+├── style.css         # Custom tokens, keyframes, light/dark/elderly modes & responsive rules
+├── app.js            # Command registry, state machines, speech synthesis & persistent state
+├── translations.js   # Centralized dictionary for EN, HI, ML translations & t() helper
+├── sw.js             # Service Worker implementation for PWA offline caching
+├── schemes.json      # Structured database of government schemes & eligibility parameters
+├── avatar.png        # Brand avatar image
+└── mittu.gif         # Animated listening status indicator
 ```
 
 ---
 
-## 💻 Tech Stack in Focus
+## 💻 Technical Stack
 
-*   **Structure:** Semantic markup (`index.html`) using best practices for web accessibility.
-*   **Styling:** Custom CSS variables (`style.css`), Glassmorphic blur backdrops, responsive grid layouts, animations, and transitions.
-*   **Core Logic:** Raw Vanilla JS (`app.js`) to achieve lightning-fast loading speeds on mobile devices.
-*   **APIs Handled:**
-    *   `SpeechRecognition` (Web Voice Command inputs)
-    *   `SpeechSynthesis` (System Speech outputs)
-    *   `Geolocation` (GPS Search coordinates)
-    *   `RSS2JSON API` (Headline news aggregation)
+* **Structure:** HTML5 (Semantic, Accessible, SEO-optimized with OpenGraph tags).
+* **Styling:** Vanilla CSS (Glassmorphism, custom CSS variables, responsive design, animations).
+* **Logic:** Vanilla JavaScript (ES6+, Async/Await, State Machines, Command Registry).
+* **Web APIs:**
+  * `SpeechRecognition` (Web Voice Command Input)
+  * `SpeechSynthesis` (Multi-Lingual Voice Synthesis)
+  * `Geolocation` (GPS Navigation)
+  * `ServiceWorker` (Offline PWA Caching)
+  * `localStorage` (Chat history & user preferences)
