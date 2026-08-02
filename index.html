@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MITTU is a voice-enabled virtual assistant that helps senior citizens check government scheme eligibility, find nearby services, and access emergency help in English, Hindi, and Malayalam.">
+    <meta name="theme-color" content="#090909">
     <title>MITTU - Virtual Assistant</title>
     <link rel="shortcut icon" href="avatar.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
@@ -12,21 +14,44 @@
 </head>
 
 <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="avatar.png" alt="MITTU" class="splash-logo">
+            <h2>M I T T U</h2>
+            <p id="splash-text">Loading your virtual companion...</p>
+            <div class="splash-loader">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Shapes -->
     <div class="background-shapes">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
     </div>
 
-    <section class="main-card">
+    <!-- Main App Card -->
+    <section class="main-card" id="main-card">
         <div class="header">
             <div class="title-container">
-                <h1>M I T T U</h1>
-                <span class="subtitle">Virtual Companion</span>
+                <h1 id="app-title">M I T T U</h1>
+                <span class="subtitle" id="app-subtitle">Virtual Companion</span>
             </div>
             <div class="controls">
-                <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-btn active" data-lang="en" title="English">EN</button>
+                    <button class="lang-btn" data-lang="hi" title="हिन्दी">हि</button>
+                    <button class="lang-btn" data-lang="ml" title="മലയാളം">മല</button>
+                </div>
+                <button id="theme-toggle" class="icon-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
                 <button id="elderly-toggle" class="icon-btn" title="Elderly Mode"><i class="fas fa-glasses"></i></button>
+                <button id="clear-chat" class="icon-btn" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
+                <button id="export-chat" class="icon-btn" title="Export Chat"><i class="fas fa-download"></i></button>
             </div>
         </div>
 
@@ -34,7 +59,7 @@
             <div class="image">
                 <img src="mittu.gif" alt="MITTU Assistant">
             </div>
-            <div class="listening-indicator hidden">
+            <div class="listening-indicator hidden" id="listening-indicator">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -46,23 +71,38 @@
             <div class="chat-box" id="chat-box">
                 <!-- Chat messages will appear here -->
                 <div class="message bot-message">
-                    Hello! I'm Mittu. How can I help you today?
+                    <span class="msg-text" id="welcome-text">Hello! I'm Mittu. How can I help you today?</span>
+                    <span class="msg-time"></span>
                 </div>
             </div>
+        </div>
+
+        <!-- Quick Action Chips -->
+        <div class="quick-actions" id="quick-actions">
+            <button class="chip" data-command="what am i eligible for" data-chip-key="chipSchemes">🏛️ Check Schemes</button>
+            <button class="chip" data-command="emergency" data-chip-key="chipEmergency">🚨 Emergency</button>
+            <button class="chip" data-command="news" data-chip-key="chipNews">📰 News</button>
+            <button class="chip" data-command="system info" data-chip-key="chipSystem">💻 System Info</button>
+            <button class="chip" data-command="help" data-chip-key="chipHelp">❓ Help</button>
         </div>
 
         <div class="input-area">
             <div class="input-wrapper">
                 <input type="text" id="type-box" placeholder="Type your command here...">
-                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                <button id="send-btn" title="Send"><i class="fas fa-paper-plane"></i></button>
             </div>
             <div class="voice-controls">
-                <button class="talk-btn"><i class="fas fa-microphone-alt"></i></button>
-                <p class="status-text">Click mic to speak</p>
+                <button class="talk-btn" id="talk-btn" title="Click to speak (Ctrl+M)"><i class="fas fa-microphone-alt"></i></button>
+                <p class="status-text" id="status-text">Click mic to speak</p>
             </div>
+        </div>
+
+        <div class="footer">
+            <p>Built with ❤️ by <a href="https://github.com/absharabi" target="_blank" rel="noopener noreferrer">absharabi</a> · <kbd>Ctrl+M</kbd> Mic · <kbd>Esc</kbd> Stop · <kbd>Ctrl+L</kbd> Clear</p>
         </div>
     </section>
 
+    <script src="translations.js"></script>
     <script src="app.js"></script>
 </body>
 
